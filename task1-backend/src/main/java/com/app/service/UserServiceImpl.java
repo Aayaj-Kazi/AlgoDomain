@@ -27,17 +27,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Products> getAllScrappost() {
 		
-		return Products.findAll();   
+		return productRepo.findAll();   
 	}
 
 	@Override
-	public String deleteProducts(Integer Id) {
-		Products.deleteById(Id);
-		return "Products of ID "+Id +"Deleted Succesfully" ;    //delete Products uploaded by same user
-	}
-	@Override
 	public String deleteProduct(Integer Id) {
-		// TODO Auto-generated method stub
+		productRepo.deleteById(Id);
 		return null;
 	}
 
@@ -49,8 +44,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Products addscrappost(Products scrappost) {
-		return scrapRepo.save(scrappost);
+	public Products addProduct(Products product) {
+		return productRepo.save(product);
 	}
 
 
@@ -69,19 +64,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Optional<Products> findById(Integer Id) {
-		return Products.findById(Id);
+		return productRepo.findById(Id);
 	}
 
 	@Override
 	public Optional<Products> findByUser(int user_id) {
 		
-		return Products.findById(user_id);
-	}
-
-	@Override
-	public Products addProduct(Products product) {
-		// TODO Auto-generated method stub
-		return null;
+		return productRepo.findById(user_id);
 	}
 
 	
