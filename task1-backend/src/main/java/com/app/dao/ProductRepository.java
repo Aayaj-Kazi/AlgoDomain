@@ -20,8 +20,8 @@ public interface ProductRepository extends JpaRepository<Products, Integer> {
 		
 		List<Products> findByPprice(int pprice);
 		
-		@Query("select s from Products s  where user_id= :user_id")
-		List<Products>  findByUser(User user_id);
+//		@Query("select s from Products s  where user_id= :user_id")
+//		List<Products>  findByUser(User user_id);
 
 		}
 
